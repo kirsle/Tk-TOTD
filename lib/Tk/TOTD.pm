@@ -223,7 +223,7 @@ sub Show {
 			-size   => $self->{fonts}->{main}->{size},
 		],
 		-command    => sub {
-			$self->destroy;
+			$self->{'selected_button'} = 'Close';
 		},
 	)->pack (-side => 'right', -padx => 10);
 
@@ -408,7 +408,11 @@ Reconfigure previously set options.
 
 =head1 CHANGES
 
-  Version 0.2
+  Version 0.3 - Nov  1 2013
+  - Fix a bug where using the "Close" button on the dialog wouldn't dismiss the
+    dialog properly, and the program would never exit gracefully again.
+
+  Version 0.2 - Jan 16 2005
   - The widget now behaves as a DialogBox as it should, blocking the main window
     until closed.
 
@@ -418,7 +422,7 @@ None known yet.
 
 =head1 AUTHOR
 
-B<Cerone Kirsle> kirsle "@" aichaos.com
+Noah Petherbridge, http://www.kirsle.net/
 
 This code is distributed under the same terms as Perl.
 

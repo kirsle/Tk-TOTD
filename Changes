@@ -1,7 +1,11 @@
 Revision history for Perl extension Tk::TOTD.
 
+0.3  Fri Nov  1 13:57:00 2013
+	- Fix a bug where the "Close" button on the dialog wouldn't dismiss the
+	  dialog properly, and the program would never exit gracefully again.
+
 0.2  Mon Jan 16 21:00:00 2005
-      - Module now behaves as a DialogBox
+	- Module now behaves as a DialogBox
 
 0.1  Sun Oct 16 15:55:51 2005
 	- original version; created by h2xs 1.23 with options
