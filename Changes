@@ -1,0 +1,9 @@
+Revision history for Perl extension Tk::TOTD.
+
+0.2  Mon Jan 16 21:00:00 2005
+      - Module now behaves as a DialogBox
+
+0.1  Sun Oct 16 15:55:51 2005
+	- original version; created by h2xs 1.23 with options
+		-X -n Tk::TOTD
+
