@@ -1,4 +1,4 @@
-# Tk-TOTD version 0.01
+# Tk::TOTD
 
 ## INSTALLATION
 
