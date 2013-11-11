@@ -17,7 +17,8 @@ sub new {
 	my $class = ref($proto) || $proto || 'Tk::TOTD';
 
 	my $self = {
-		mw => $mw,
+		mw     => $mw,
+		dialog => undef,
 		@_,
 	};
 
@@ -35,6 +36,9 @@ sub Show {
 	);
 	$self->geometry ('460x260');
 	$self->resizable (0,0);
+
+	# Keep a reference to get back to it later.
+	$args->{dialog} = $self;
 
 	my $header = $args->{'-slogan'} || 'Did you know that...',
 
@@ -289,6 +293,14 @@ sub Exit {
 	undef $cw;
 }
 
+sub destroy {
+	my $self = shift;
+
+	if ($self->{dialog}) {
+		$self->{dialog}->{selected_button} = 'Close';
+	}
+}
+
 =head1 NAME
 
 Tk::TOTD - Tip Of The Day dialog for Perl/Tk.
@@ -404,9 +416,29 @@ and therefore will pause your main window.
 
 Reconfigure previously set options.
 
+=item B<destroy ()>
+
+Completely clean up the TOTD DialogBox. This method is a workaround for an
+underlying bug in C<Tk::DialogBox> wherein if a DialogBox is open, and you
+close the C<MainWindow> by clicking on the "X" button from the window manager,
+your program doesn't exit completely because the DialogBox is waiting on a
+variable that's only set when a button has been clicked.
+
+You can work around this bug by calling C<destroy()> on your C<Tk::TOTD>
+object when your C<MainWindow> is exited.
+
+  $mw->protocol('WM_DELETE_WINDOW', sub {
+    $totd->destroy();
+    exit(0);
+  });
+
 =back
 
 =head1 CHANGES
+
+  Version 0.4 - Nov 11 2013
+  - Add the destroy() method to allow for a workaround to a bug in
+    Tk::DialogBox.
 
   Version 0.3 - Nov  1 2013
   - Fix a bug where using the "Close" button on the dialog wouldn't dismiss the

@@ -1,6 +1,6 @@
 Changes
 Makefile.PL
 MANIFEST
-README
+README.md
 t/Tk-TOTD.t
 lib/Tk/TOTD.pm

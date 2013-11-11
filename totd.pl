@@ -14,6 +14,12 @@ my $totd = $main->TOTD (
 
 $totd->configure (-title => 'Something Else');
 
+$main->protocol('WM_DELETE_WINDOW', sub {
+	print "Shutdown\n";
+	$totd->destroy();
+	exit(0);
+});
+
 $main->Button (
 	-text => 'Show TOTD',
 	-command => sub {
