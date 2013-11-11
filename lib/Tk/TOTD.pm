@@ -7,7 +7,7 @@ use Tk::ROText;
 use Tk::DialogBox;
 use Tk::Widget;
 
-our $VERSION = '0.3';
+our $VERSION = '0.4';
 
 Tk::Widget->Construct ('TOTD');
 
