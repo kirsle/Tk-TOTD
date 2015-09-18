@@ -7,7 +7,7 @@ use Tk::ROText;
 use Tk::DialogBox;
 use Tk::Widget;
 
-our $VERSION = '0.4';
+our $VERSION = '0.5';
 
 Tk::Widget->Construct ('TOTD');
 
@@ -435,6 +435,9 @@ object when your C<MainWindow> is exited.
 =back
 
 =head1 CHANGES
+
+  Version 0.5 - Sep 18 2015
+  - Add dependency on Tk modules.
 
   Version 0.4 - Nov 11 2013
   - Add the destroy() method to allow for a workaround to a bug in

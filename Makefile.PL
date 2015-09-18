@@ -5,7 +5,12 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME              => 'Tk::TOTD',
     VERSION_FROM      => 'lib/Tk/TOTD.pm', # finds $VERSION
-    PREREQ_PM         => {}, # e.g., Module::Name => 1.1
+    PREREQ_PM         => {
+        'Tk' => 0,
+        'Tk::ROText' => 0,
+        'Tk::DialogBox' => 0,
+        'Tk::Widget' => 0,
+    }, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/Tk/TOTD.pm', # retrieve abstract from module
        AUTHOR         => 'Noah Petherbridge <kirsle@cpan.org>') : ()),
